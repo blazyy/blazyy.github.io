@@ -1,0 +1,11 @@
+# main links
+main:
+  - title: "Archive"
+    url: /archive/
+  - title: "Space"
+    url: /space/
+
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/

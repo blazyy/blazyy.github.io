@@ -1,0 +1,93 @@
+body{
+    margin: auto;
+    padding: 0;
+    height: 100%;
+    color: white;
+    font-size: 15px;
+}
+
+p, #typed, i{
+    font-family: 'Raleway', sans-serif;
+    padding-left: 5%;
+    font-size: 1.8vh;
+    max-width: 60%;
+    line-height: 150%;
+    margin: 0;
+    text-align: justify;
+}
+
+#typed{
+    font-size: 3vh;
+}
+
+a{
+    color: white;
+}
+
+h1{
+    padding-top: 5%;
+    padding-left: 5%;
+    font-size: 5vh;
+    font-family: 'Staatliches', cursive;
+}
+
+.typed-cursor{
+    font-family: 'Raleway', sans-serif;
+    font-size: 3vh;
+}
+
+.content{
+    color: white;
+    position: absolute;
+    width: 100%;
+    line-height: 0.4em;
+}
+
+.fa-facebook-f:hover, .fa-linkedin-in:hover, .fa-github:hover, .fa-envelope:hover {
+    color: #c0dfe5;
+}
+
+.clickableicons{
+    font-size: 4.5vh;
+}
+    
+#particles-js {
+    position : absolute;
+    width:100%;
+    height:100%;
+    /* z-index:-1;   background: linear-gradient(to bottom right, #45145A,  #FF5300);*/
+   background: linear-gradient(to bottom right, #45145A,  #FF5300);
+    animation:colorSpin 30s linear infinite;
+}
+
+@keyframes colorSpin{
+    25%{background-position:0 100%}
+    50%{background-position:100% 100%}
+    75%{background-position:100% 0}
+    100%{filter:hue-rotate(360deg)}
+  }
+
+
+.link, i {
+    color: white;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.8s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
