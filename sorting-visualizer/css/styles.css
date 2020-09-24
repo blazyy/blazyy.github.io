@@ -1,0 +1,45 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    /* overflow: hidden hides scrollbar */
+    overflow: hidden;
+    background: black;
+    color: white;
+    font-family: 'Inconsolata', monospace;
+}
+
+canvas {
+    /* Stuff below make the p5.js the background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+button {
+    background-color: #000000;
+}
+
+/* Sort Select Dropdown List */
+select option, select.custom-select {
+    background: rgb(0, 0, 0);
+    color: #fff;
+}
+
+/* Input range */
+.custom-range::-webkit-slider-thumb {
+    background: rgb(57, 59, 57);
+}
+
+.custom-range::-moz-range-thumb {
+    background: rgb(57, 59, 57);
+}
+
+.custom-range::-ms-thumb {
+    background: rgb(57, 59, 57);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sorting Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/sorting-algorithms.js"></script>
+    <script type="text/javascript" src="js/sorting-visualizer.js"></script>
+</head>
+
+<body>
+    <div id="content" class="p-5">
+        <div class="d-flex justify-content-between">
+            <h1 class="display-4">Sorting Visualizer</h1>
+            <p class="text-dark">Created by <a class="text-dark" target="_blank" href="https://faaez.co.in/me">Faaez Razeen</a></p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3">
+                <input id="num-bars-range" type="range" class="custom-range mt-1 mb-3" value="150" min="50" max="250">
+                <select id="sort-select-dropdown" class="custom-select">
+                    <option value="bubble" selected>Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="quicksort_l">Quick Sort (lomuto)</option>
+                    <option value="quicksort_h">Quick Sort (hoare)</option>
+                    <option value="merge">Merge Sort</option>
+                </select>
+            </div>
+        </div>
+        <button id="start-button" class="btn btn-outline-primary mt-3 mr-2">Start</button>
+        <button id="new-button" class="btn btn-outline-danger mt-3 mr-2">New</button>
+        <button id="reset-button" class="btn btn-outline-warning mt-3 mr-2" disabled>Reset</button>
+    </div>
+
+</body>
+
+</html>
