@@ -8,33 +8,53 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js" integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znuqghaZ3tdCMRrreLoM8km+jIQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript" src="js/sorting-algorithms.js"></script>
     <script type="text/javascript" src="js/sorting-visualizer.js"></script>
+    <link rel="shortcut icon" href="#"> <!-- to remove the favicon error -->
 </head>
 
 <body>
     <div id="content" class="p-5">
         <div class="d-flex justify-content-between">
             <h1 class="display-4">Sorting Visualizer</h1>
-            <p class="text-dark">Created by<a class="text-dark" target="_blank" href="https://faaez.co.in/me"> Faaez Razeen</a></p>
+            <p class="text-dark">Created by <a class="text-dark" target="_blank" href="https://faaez.co.in/me">Faaez Razeen</a></p>
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-3">
-                <input id="num-bars-range" type="range" class="custom-range mt-1 mb-3" value="150" min="50" max="250">
-                <select id="sort-select-dropdown" class="custom-select">
-                    <option value="bubble" selected>Bubble Sort</option>
-                    <option value="selection">Selection Sort</option>
-                    <option value="insertion">Insertion Sort</option>
-                    <option value="quicksort_l">Quick Sort (lomuto)</option>
-                    <option value="quicksort_h">Quick Sort (hoare)</option>
-                    <option value="merge">Merge Sort</option>
-                </select>
+                <div class="row">
+                    <div class="col-9">
+                        <!-- Make sure initial value for range is the same as num_bars -->
+                        <input id="num-bars-range" type="range" class="custom-range mt-1 mb-3" value="150" min="50" max="250">
+                    </div>
+                    <div class="col-3">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="color-toggle-switch" checked>
+                            <label class="custom-control-label" for="color-toggle-switch">Color</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <select id="sort-select-dropdown" class="custom-select">
+                            <option value="bubble" selected>Bubble Sort</option>
+                            <option value="cocktail">Cocktail Shaker Sort</option>
+                            <option value="selection">Selection Sort</option>
+                            <option value="insertion">Insertion Sort</option>
+                            <option value="shell">Shell Sort</option>
+                            <option value="quicksort">Quick Sort</option>
+                            <option value="merge">Merge Sort</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <button id="start-button" class="btn btn-outline-primary mt-3 mr-2">Start</button>
         <button id="new-button" class="btn btn-outline-danger mt-3 mr-2">New</button>
         <button id="reset-button" class="btn btn-outline-warning mt-3 mr-2" disabled>Reset</button>
+        <button id="new-colors-button" class="btn btn-outline-info mt-3 mr-2">New Colours</button>
     </div>
 
 </body>
