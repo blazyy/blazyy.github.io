@@ -1,4 +1,4 @@
-const margin_top_percentage = 0.5,
+const margin_top_percentage = 0.4,
     bar_color = 255,
     available_sorts = {
         'bubble': bubble_sort,
@@ -7,7 +7,8 @@ const margin_top_percentage = 0.5,
         'insertion': insertion_sort,
         'shell': shell_sort,
         'quicksort': quick_sort,
-        'merge': merge_sort
+        'merge': merge_sort,
+        'heap': heap_sort
     };
 
 let colored_bars = true,
@@ -69,8 +70,10 @@ function set_bar_colors() {
         let color_scale;
         if (retrieved_gradients)
             color_scale = chroma.scale(color_gradients[random_color_index].colors).domain([0, Math.max(...bar_heights)]);
-        else
+        else {
             color_scale = chroma.scale(['yellow', 'navy']).mode('lch').domain([0, Math.max(...bar_heights)]);
+            $('#new-colors-button').hide(); // Hides new colors button in case there is something wrong with the github link with the gradients .json file.
+        }
         for (let i = 0; i < num_bars; i++) {
             let new_color = color_scale(bar_heights[i]),
                 r = Math.floor(new_color._rgb[0]),
@@ -115,7 +118,13 @@ function initialize() {
     });
 
     $('#color-toggle-switch').on('change', function() {
-        $('#color-toggle-switch').is(':checked') ? colored_bars = true : colored_bars = false;
+        if ($('#color-toggle-switch').is(':checked')) {
+            colored_bars = true;
+            $('#new-colors-button').removeAttr('disabled');
+        } else {
+            $('#new-colors-button').attr('disabled', true);
+            colored_bars = false;
+        }
         set_bar_colors();
     });
 
@@ -127,7 +136,10 @@ function initialize() {
         await available_sorts[selected_sort]();
         noLoop();
         currently_sorting = false;
-        $('#num-bars-range, #color-toggle-switch, #sort-select-dropdown, #new-button, #new-colors-button').removeAttr('disabled');
+        $('#num-bars-range, #color-toggle-switch, #sort-select-dropdown, #new-button').removeAttr('disabled');
+        if (colored_bars) {
+            $('#new-colors-button').removeAttr('disabled');
+        }
     });
 
     $('#new-button').on('click', () => redraw_bars(resize = true));

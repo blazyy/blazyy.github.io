@@ -212,3 +212,38 @@ async function merge_sort_slice(arr, color_arr, start, end) {
         bar_colors = color_arr.slice();
     }
 }
+
+async function heapify(n, i) {
+    let largest = i;
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+
+    if (left < n && bar_heights[i] < bar_heights[left])
+        largest = left;
+
+    if (right < n && bar_heights[largest] < bar_heights[right])
+        largest = right;
+
+    if (largest != i) {
+        swap(i, largest);
+        heapify(n, largest);
+    }
+
+    apply_colors(i, num_bars, 1, 'red', 'heap');
+    apply_colors(largest, num_bars, 1, 'red', 'heap');
+    await sleep(10);
+    apply_colors(i, num_bars, 1, 'white', 'heap');
+    apply_colors(largest, num_bars, 1, 'white', 'heap');
+}
+
+async function heap_sort() {
+    for (let i = Math.floor(num_bars / 2) - 1; i >= 0; i--) {
+        await sleep(40);
+        await heapify(num_bars, i);
+    }
+    for (let i = num_bars - 1; i >= 0; i--) {
+        swap(i, 0);
+        await sleep(40);
+        await heapify(i, 0);
+    }
+}
