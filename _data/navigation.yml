@@ -4,6 +4,8 @@ main:
     url: /archive/
   - title: "Space"
     url: /space/
+  - title: "Sorting Visualizer"
+    url: /sorting-visualizer/
 
   # - title: "Sample Collections"
   #   url: /collection-archive/
