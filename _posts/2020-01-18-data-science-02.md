@@ -100,6 +100,7 @@ neighborhoods.head()
 This is what my dataframe looks like:
 
 <p align= "center">
+  
 |    | Name       |   Latitude |   Longitude |
 |---:|:-----------|-----------:|------------:|
 |  0 | Adambakkam |    12.99   |     80.2    |
@@ -107,6 +108,7 @@ This is what my dataframe looks like:
 |  2 | Alandur    |    13.003  |     80.204  |
 |  3 | Alapakkam  |    13.049  |     80.1673 |
 |  4 | Alwarpet   |    13.0339 |     80.2486 |
+  
 </p>
 
 ## Foursquare
@@ -129,6 +131,7 @@ url = 'https://api.foursquare.com/v2/venues/explore?&client_id={}&client_secret=
 After doing this for each neighborhood, the resulting venues are again put into a `pandas` dataframe.
 
 <p align="center">
+  
 |    | Neighborhood   |   Neighborhood Latitude |   Neighborhood Longitude | Venue                   | Venue ID                 |   Venue Latitude |   Venue Longitude | Venue Category          |
 |---:|:---------------|------------------------:|-------------------------:|:------------------------|:-------------------------|-----------------:|------------------:|:------------------------|
 |  0 | Adambakkam     |                 12.99   |                  80.2    | Pizza Republic          | 4bf58dd8d48988d1ca941735 |          12.991  |           80.1986 | Pizza Place             |
@@ -136,6 +139,7 @@ After doing this for each neighborhood, the resulting venues are again put into 
 |  2 | Adambakkam     |                 12.99   |                  80.2    | Thalapakattu Hotel      | 4bf58dd8d48988d142941735 |          12.992  |           80.1989 | Asian Restaurant        |
 |  3 | Adambakkam     |                 12.99   |                  80.2    | The Great Kabab Factory | 5283c7b4e4b094cb91ec88d7 |          12.9938 |           80.2017 | Kebab Restaurant        |
 |  4 | Adyar          |                 13.0063 |                  80.2574 | Bombay Brassiere        | 54135bf5e4b08f3d2429dfdd |          13.007  |           80.2564 | North Indian Restaurant |
+  
 </p>
 
 # Methodology
@@ -143,6 +147,7 @@ After doing this for each neighborhood, the resulting venues are again put into 
 After this, the venue categories are one-hot encoded and then the 10 most frequent venues (only five shown here) in each neighborhood are found using code that I totally did not copy-paste from the tutorial notebooks. The result is this: 
 
 <p align="center">
+  
 |    | Neighborhood   | 1st Most Common Venue   | 2nd Most Common Venue   | 3rd Most Common Venue         | 4th Most Common Venue   | 5th Most Common Venue   |
 |---:|:---------------|:------------------------|:------------------------|:------------------------------|:------------------------|:------------------------|
 |  0 | Adambakkam     | Pizza Place             | Bakery                  | Kebab Restaurant              | Asian Restaurant        | Women's Store           |
@@ -150,6 +155,7 @@ After this, the venue categories are one-hot encoded and then the 10 most freque
 |  2 | Alandur        | Hotel                   | Fish Market             | South Indian Restaurant       | Movie Theater           | Donut Shop              |
 |  3 | Alapakkam      | Indian Restaurant       | Fast Food Restaurant    | Women's Store                 | Donut Shop              | Flea Market             |
 |  4 | Alwarpet       | Indian Restaurant       | Lounge                  | Hotel                         | Japanese Restaurant     | Restaurant              |
+  
 </p>
 
 After this, k-means clustering is used to group these neighborhoods. I forgot to choose the best k for this algorithm. I didn't notice until after I published this. Oh well. After they are clustered, we can use Folium (which is a map visualization library for Python), to see all the neighborhoods and the cluster they belong to on a nice map: 
